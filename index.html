@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="FreeFlo,Machine Learning,Startups,Blockchain,Indian Startups">
+		<meta name="author" content="FreeFlo">
+        <title>Get Your Mentor</title>
+    </head>
+    <body>
+		<center><i><h1>Get Your Mentor</h1></i></center>
+        <form action="" method="post">
+            {{ form.csrf }}
+			<center>
+		        <div class="input text">
+					<span><b><i> Fields marked with * are mandatory </i></b></span><br/><br/>
+					{{ form.name.label }} <br> {{ form.name }} <br/><br/>
+					{{ form.email.label }} <br> {{ form.email }} <br/><br/>
+		      {{ form.ph_num.label }} <br> {{ form.ph_num }} <br/><br/>
+					{{ form.mentor_field.label }} <br> {{ form.mentor_field }} <br/><br/>
+					{{ form.expect.label }} <br> {{ form.expect }} <br/><br/>
+		        </div>
+
+		        <div class="input submit">
+		            <input type="submit" value="Submit" />
+		        </div>
+		    </form>
+
+			{% with messages = get_flashed_messages(with_categories=true) %}
+		        {% if messages %}
+		            <ul>
+		                {% for message in messages %}
+		                    <li>{{ message[1], messages }}</li>
+		                {% endfor %}
+		            </ul>
+		        {% endif %}
+		    {% endwith %}
+		</center>
+    </body>
+</html>
