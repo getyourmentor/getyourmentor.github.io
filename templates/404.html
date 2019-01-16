@@ -1,0 +1,22 @@
+<!-- Exports header and navbar from header.html
+     or any file you want-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="FreeFlo,Machine Learning,Startups,Blockchain,Indian Startups">
+		<meta name="author" content="FreeFlo">
+		<title>Page Not Found</title>
+	</head>
+	<center>
+		{% block title %}<h1>Page Not Found</h1>{% endblock %}
+		{% block body %}
+
+			<span>Oops! Looks like the page doesn't exist anymore</span>
+			<a href="{{ url_for('index') }}"><p>Click Here</a> to go to the Home Page</p>
+
+		{% endblock %}
+	</center>
+</html>
