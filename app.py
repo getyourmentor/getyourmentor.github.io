@@ -19,7 +19,7 @@ def send_mail(subject_given, users, name, email, ph_num, field, expect):
 	if(subject_given.split("-")[0]=='mentorship'):
 		to_email = sendgrid.helpers.mail.Email("getyourmentor@gmail.com")
 	else:
-		to_email = sendgrid.helpers.mail.Email("getyourmentor_mentor@gmail.com")
+		to_email = sendgrid.helpers.mail.Email("getyourmentor.mentor@gmail.com")
 	subject = subject_given
 	content = sendgrid.helpers.mail.Content("text/html", "Request: %s <br>Name : %s <br>Email : %s <br>Number : %s <br>Field Of Mentorship : %s <br>Expectation of student : %s<br>"%(users, name, email, ph_num, field, expect))
 	mail = sendgrid.helpers.mail.Mail(from_email, subject, to_email, content)
