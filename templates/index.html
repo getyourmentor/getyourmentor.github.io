@@ -1,41 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="keywords" content="FreeFlo,Machine Learning,Startups,Blockchain,Indian Startups">
-		<meta name="author" content="FreeFlo">
-        <title>Get Your Mentor</title>
-    </head>
-    <body>
-		<center><i><h1>Get Your Mentor</h1></i></center>
-        <form action="" method="post">
-            {{ form.csrf }}
-			<center>
-		        <div class="input text">
-					<span><b><i> Fields marked with * are mandatory </i></b></span><br/><br/>
-					{{ form.name.label }} <br> {{ form.name }} <br/><br/>
-					{{ form.email.label }} <br> {{ form.email }} <br/><br/>
-		      {{ form.ph_num.label }} <br> {{ form.ph_num }} <br/><br/>
-					{{ form.mentor_field.label }} <br> {{ form.mentor_field }} <br/><br/>
-					{{ form.expect.label }} <br> {{ form.expect }} <br/><br/>
-		        </div>
+{% extends 'layout.html' %}
 
-		        <div class="input submit">
-		            <input type="submit" value="Submit" />
-		        </div>
-		    </form>
+{% block body %}
+		<center>
 
-			{% with messages = get_flashed_messages(with_categories=true) %}
-		        {% if messages %}
-		            <ul>
-		                {% for message in messages %}
-		                    <li>{{ message[1], messages }}</li>
-		                {% endfor %}
-		            </ul>
-		        {% endif %}
-		    {% endwith %}
+			<div class="container pitch" style="margin-left:20px;margin-right:20px;">
+				<span class="lead">
+            In today's world where along with technical skills, people also require to be good with a certain
+						non technical aspects, it becomes tough for you to learn so many things. A lot of times, you might
+						wish to learn along with someone or have someone who is good at a particular field to guide you
+						so that you know what's necessary to learn and what's not.<br><br>
+						Having a study group and a guide or a mentor would help you learn more efficiently and quickly
+						as it would help you maintain the competitive spirit, not feel alone
+						while learning, have a group with whom you can discuss about various doubts one might get and lastly, learn only what
+						actually is necessary for you!<br><br>
+				</span>
+			</div>
 		</center>
-    </body>
-</html>
+{% endblock %}
