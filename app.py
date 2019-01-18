@@ -14,7 +14,7 @@ users = 0
 mentee_count = 0
 
 def send_mail(subject_given, users, name, email, ph_num, field, expect):
-	sg = sendgrid.SendGridAPIClient(apikey = "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")#os.environ.get("SG_API_KEY"))
+	sg = sendgrid.SendGridAPIClient(apikey = os.environ.get("SG_API_KEY"))
 	from_email = sendgrid.helpers.mail.Email("rahulkumaran313@gmail.com", name="Rahul Arulkumaran")
 	if(subject_given.split("-")[0]=='mentorship'):
 		to_email = sendgrid.helpers.mail.Email("getyourmentor@gmail.com")
