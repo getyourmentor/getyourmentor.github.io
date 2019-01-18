@@ -16,7 +16,10 @@ mentee_count = 0
 def send_mail(subject_given, users, name, email, ph_num, field, expect):
 	sg = sendgrid.SendGridAPIClient(apikey = "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")#os.environ.get("SG_API_KEY"))
 	from_email = sendgrid.helpers.mail.Email("rahulkumaran313@gmail.com", name="Rahul Arulkumaran")
-	to_email = sendgrid.helpers.mail.Email("getyourmentor@gmail.com")
+	if(subject_given.split("-")[0]=='mentorship'):
+		to_email = sendgrid.helpers.mail.Email("getyourmentor@gmail.com")
+	else:
+		to_email = sendgrid.helpers.mail.Email("getyourmentor_mentor@gmail.com")
 	subject = subject_given
 	content = sendgrid.helpers.mail.Content("text/html", "Request: %s <br>Name : %s <br>Email : %s <br>Number : %s <br>Field Of Mentorship : %s <br>Expectation of student : %s<br>"%(users, name, email, ph_num, field, expect))
 	mail = sendgrid.helpers.mail.Mail(from_email, subject, to_email, content)
@@ -36,7 +39,7 @@ def mentor():
 			global users
 			users+=1
 			subject = "Mentorship - " + str(users)
-			response = send_mail(subject, users, request.form['name'], request.form['email'], request.form['ph_num'], request.form['mentor_field'], request.form['expect'])
+			#response = send_mail(subject, users, request.form['name'], request.form['email'], request.form['ph_num'], request.form['mentor_field'], request.form['expect'])
 			return redirect(url_for("thanks"))
 	return render_template("mentor.html", form=form)
 
@@ -48,7 +51,7 @@ def mentee():
 			global mentee_count
 			mentee_count += 1
 			subject = "Mentee Form - " + str(mentee_count)
-			response = send_mail(subject, users, request.form['name'], request.form['email'], request.form['ph_num'], request.form['mentee'], request.form['expect'])
+			#response = send_mail(subject, users, request.form['name'], request.form['email'], request.form['ph_num'], request.form['mentee'], request.form['expect'])
 			return redirect(url_for("thanks"))
 	return render_template("mentee.html", form=form)
 
